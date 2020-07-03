@@ -1,4 +1,4 @@
-# :necktie: Team Generator :necktie:
+# Team Generator :necktie:
           
 ## Description 
       
