@@ -10,10 +10,8 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-// Blank employees array to hold all employee objects
 let employees = [];
 
-// Function to add employees
 function promptUser() {
     return (
         inquirer
@@ -66,7 +64,6 @@ function promptUser() {
                     message: "Would you like to add another employee?",
                 },
             ])
-            // Use answers to create an employee that is pushed to the employees array
             .then((answers) => {
                 switch (answers.role) {
                     case "Manager": {
@@ -102,7 +99,6 @@ function promptUser() {
                         );
                         break;
                 }
-                // If they say yes to adding more employees reprompt, otherwise render html passing in the employees array
                 if (answers.newEmployee === true) {
                     promptUser();
                 } else {
@@ -112,7 +108,6 @@ function promptUser() {
             })
     );
 }
-// renderHTML by first checking for existing output folder then creating one if none existant
 const renderHtml = (html) => {
     fs.access(OUTPUT_DIR, function (error) {
         if (error) {
@@ -130,7 +125,6 @@ const renderHtml = (html) => {
         }
     });
 };
-// write to the html file
 const writeHtml = (html) => {
     fs.writeFile(outputPath, html, (err) => {
         if (err) {
